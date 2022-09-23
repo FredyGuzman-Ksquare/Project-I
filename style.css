@@ -1,0 +1,343 @@
+body{
+    background-image: linear-gradient(0, #6a4e38 0, #644737 8.33%, #5b3f34 16.67%, #4e3630 25%, #3e2c29 33.33%, #2b2120 41.67%, #161515 50%, #000301 58.33%, #000000 66.67%, #000000 75%, #000000 83.33%, #000000 91.67%, #000000 100%);
+}
+.mainContainer{
+    width: 100%;
+    height: 100%;
+    border: #FFF;
+    display: flex;
+}
+
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ #tridiv {
+    perspective: 800px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+  }
+  .face {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 5);
+  }
+  .scene, .shape, .face, .face-wrapper, .cr {
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+  .scene {
+    width: 80em;
+    height: 80em;
+    top: 50%;
+    left: 50%;
+    margin: -40em 0 0 -40em;
+  }
+  .shape {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-origin: 50%;
+  }
+  .face, .face-wrapper {
+    overflow: hidden;
+    transform-origin: 0 0;
+    backface-visibility: hidden;
+    /* hidden by default, prevent blinking and other weird rendering glitchs */
+  }
+  .face {
+    background-size: 100% 100%!important;
+    background-position: center;
+  }
+  .face-wrapper .face {
+    left: 100%;
+    width: 100%;
+    height: 100%
+  }
+  .photon-shader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
+  }
+  .side {
+    left: 50%;
+  }
+  .cr, .cr .side {
+    height: 100%;
+  }
+  [class*="cylinder"] .tp {
+    transform: rotateX(90deg) translateY(-50%);
+  }
+  [class*="cylinder"] .bm {
+    transform: rotateX(-90deg) translateY(-50%);
+  }
+  [class*="cylinder"] .tp, [class*="cylinder"] .bm, [class*="cylinder"] .tp .photon-shader, [class*="cylinder"] .bm .photon-shader {
+    border-radius: 50%;
+  }
+  [class*="cylinder"] .bm {
+    top: 100%;
+  }
+  [class*="prism"] .ft, [class*="prism"] .bk {
+    width: 100%;
+    height: 100%;
+  }
+  [class*="prism"] .bk {
+    left: 100%;
+  }
+  [class*="prism"] .rt {
+    transform: rotateY(-90deg) translateX(-50%);
+  }
+  [class*="prism"] .lt {
+    transform: rotateY(90deg) translateX(-50%);
+  }
+  [class*="prism"] .bm {
+    transform: rotateX(-90deg) translateY(-50%);
+  }
+  [class*="prism"] .lt {
+    left: 100%;
+  }
+  [class*="prism"] .bm {
+    top: 100%;
+  }
+  [class*="prism"] .rt .face {
+    left: -100%;
+    transform-origin: 100% 0;
+  }
+  /* .cyl-1 styles */
+  .cyl-1 {
+    transform:translate3D(0em, -1em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    opacity:1;
+    width:25em;
+    height:5em;
+    margin:-2.5em 0 0 -12.5em;
+  }
+  .cyl-1 .tp, .cyl-1 .bm {
+    width:25em;
+    height:25em;
+  }
+  .cyl-1 .side {
+    width:10.380339059327376em;
+    height:5em;
+  }
+  .cyl-1 .s0 {
+    transform: rotateY(22.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s1 {
+    transform: rotateY(67.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s2 {
+    transform: rotateY(112.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s3 {
+    transform: rotateY(157.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s4 {
+    transform: rotateY(202.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s5 {
+    transform: rotateY(247.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s6 {
+    transform: rotateY(292.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .s7 {
+    transform: rotateY(337.5deg) translate3D(-50%, 0, 12.475em);
+  }
+  .cyl-1 .face, .cyl-1 .side {
+    background-color:#FFFFFF;
+  }
+  .cyl-1 .tp {
+    background-color:#2e2e2e;
+  }
+  .cyl-1 .bm {
+    background-color:#f482d2;
+  }
+  /* .blue styles */
+  .blue {
+    transform:translate3D(6.5em, -6em, 6.5em) rotateX(0deg) rotateY(360deg) rotateZ(90deg);
+    opacity:1;
+    width:5em;
+    height:12.5em;
+    margin:-6.25em 0 0 -2.5em;
+  }
+  .blue .rt .face {
+    transform:rotateZ(-45.00000000000001deg);
+  }
+  .blue .lt .face {
+    transform:rotateZ(45.00000000000001deg);
+  }
+  .blue .ft {
+    height:17.67766952966369em;
+    transform:translateZ(-6.25em) rotateX(45.00000000000001deg);
+  }
+  .blue .bk {
+    transform:translateZ(-6.25em) rotateY(180deg);
+  }
+  .blue .rt, .blue .lt {
+    width:12.5em;
+    height:12.5em;
+  }
+  .blue .rt .face, .blue .lt .face {
+    height:17.67766952966369em;
+  }
+  .blue .bm {
+    width:5em;
+    height:12.5em;
+  }
+  .blue .face {
+    background-color:#2424ff;
+  }
+  /* .yellow styles */
+  .yellow {
+    transform:translate3D(-6.5em, -6em, 6.5em) rotateX(0deg) rotateY(-90deg) rotateZ(90deg);
+    opacity:1;
+    width:5em;
+    height:12.5em;
+    margin:-6.25em 0 0 -2.5em;
+  }
+  .yellow .rt .face {
+    transform:rotateZ(-45.00000000000001deg);
+  }
+  .yellow .lt .face {
+    transform:rotateZ(45.00000000000001deg);
+  }
+  .yellow .ft {
+    height:17.67766952966369em;
+    transform:translateZ(-6.25em) rotateX(45.00000000000001deg);
+  }
+  .yellow .bk {
+    transform:translateZ(-6.25em) rotateY(180deg);
+  }
+  .yellow .rt, .yellow .lt {
+    width:12.5em;
+    height:12.5em;
+  }
+  .yellow .rt .face, .yellow .lt .face {
+    height:17.67766952966369em;
+  }
+  .yellow .bm {
+    width:5em;
+    height:12.5em;
+  }
+  .yellow .face {
+    background-color:#ffff24;
+  }
+  /* .red styles */
+  .red {
+    transform:translate3D(6.5em, -6em, -6.5em) rotateX(0deg) rotateY(450deg) rotateZ(90deg);
+    opacity:1;
+    width:5em;
+    height:12.5em;
+    margin:-6.25em 0 0 -2.5em;
+  }
+  .red .rt .face {
+    transform:rotateZ(-45.00000000000001deg);
+  }
+  .red .lt .face {
+    transform:rotateZ(45.00000000000001deg);
+  }
+  .red .ft {
+    height:17.67766952966369em;
+    transform:translateZ(-6.25em) rotateX(45.00000000000001deg);
+  }
+  .red .bk {
+    transform:translateZ(-6.25em) rotateY(180deg);
+  }
+  .red .rt, .red .lt {
+    width:12.5em;
+    height:12.5em;
+  }
+  .red .rt .face, .red .lt .face {
+    height:17.67766952966369em;
+  }
+  .red .bm {
+    width:5em;
+    height:12.5em;
+  }
+  .red .face {
+    background-color:#ff2222;
+  }
+  /* .green styles */
+  .green {
+    transform:translate3D(-6.5em, -6em, -6.5em) rotateX(0deg) rotateY(540deg) rotateZ(90deg);
+    opacity:1;
+    width:5em;
+    height:12.5em;
+    margin:-6.25em 0 0 -2.5em;
+  }
+  .green .rt .face {
+    transform:rotateZ(-45.00000000000001deg);
+  }
+  .green .lt .face {
+    transform:rotateZ(45.00000000000001deg);
+  }
+  .green .ft {
+    height:17.67766952966369em;
+    transform:translateZ(-6.25em) rotateX(45.00000000000001deg);
+  }
+  .green .bk {
+    transform:translateZ(-6.25em) rotateY(180deg);
+  }
+  .green .rt, .green .lt {
+    width:12.5em;
+    height:12.5em;
+  }
+  .green .rt .face, .green .lt .face {
+    height:17.67766952966369em;
+  }
+  .green .bm {
+    width:5em;
+    height:12.5em;
+  }
+  .green .face {
+    background-color:#00ff00;
+  }
+  /* .cyl-2 styles */
+  .cyl-2 {
+    transform:translate3D(0em, -7em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    opacity:1;
+    width:8em;
+    height:4em;
+    margin:-2em 0 0 -4em;
+  }
+  .cyl-2 .tp, .cyl-2 .bm {
+    width:8em;
+    height:8em;
+  }
+  .cyl-2 .side {
+    width:3.33870849898476em;
+    height:4em;
+  }
+  .cyl-2 .s0 {
+    transform: rotateY(22.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s1 {
+    transform: rotateY(67.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s2 {
+    transform: rotateY(112.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s3 {
+    transform: rotateY(157.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s4 {
+    transform: rotateY(202.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s5 {
+    transform: rotateY(247.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s6 {
+    transform: rotateY(292.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .s7 {
+    transform: rotateY(337.5deg) translate3D(-50%, 0, 3.975em);
+  }
+  .cyl-2 .face, .cyl-2 .side {
+    background-color:#FFFFFF;
+  }
+  .cyl-2 .tp {
+    background-color:#220022;
+  }
+  .cyl-2 .bm {
+    background-color:#f482d2;
+  }

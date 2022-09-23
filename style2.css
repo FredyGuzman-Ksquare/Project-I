@@ -1,0 +1,89 @@
+body{
+    background-image: linear-gradient(0, #6a4e38 0, #644737 8.33%, #5b3f34 16.67%, #4e3630 25%, #3e2c29 33.33%, #2b2120 41.67%, #161515 50%, #000301 58.33%, #000000 66.67%, #000000 75%, #000000 83.33%, #000000 91.67%, #000000 100%);
+}
+.mainContainer{
+    width: 100%;
+    height: 100%;
+    border: #FFF;
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center
+}
+
+.titleContainer{
+    font-size: calc(1em + 3vmax);
+    line-height: 0.5;
+    text-align: center;
+}
+
+.titleContainer h1{
+    --interval: 1s;
+    display: block;
+    text-shadow: 
+        0 0 10px var(--color1),
+        0 0 20px var(--color2),
+        0 0 40px var(--color3),
+        0 0 80px var(--color4);
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flicker steps(100) var(--interval) 1s infinite;
+    color: yellow;
+     --color1: yellow;
+     --color2: lime;
+    --color3: green;
+     --color4: darkgreen;
+    font-family: Monoton;
+}
+
+@keyframes flicker {
+    50% {
+      color: white;
+      filter: saturate(200%) hue-rotate(20deg);
+    }
+  }
+
+.boxContainer{
+    display: flex;
+    margin-top: 5%;
+    margin-left: 30%;
+    width: calc(80%);
+}
+
+.buttonContainer {
+    display: inline-grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto;
+    transform: rotate(45deg);
+}
+
+.square {
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.square:active,
+.active {
+    filter: brightness(125%);
+}
+
+.red {
+    background-color: #c94635;
+}
+
+.blue {
+    background-color: #0e94b9;
+}
+
+.green {
+    background-color: #3a704d;
+}
+
+.yellow {
+    background-color: #d8be56;
+}
